@@ -123,7 +123,7 @@
                     <input id="inpEmail" type="email" name="email">
                 </div>            
                 <div class="form">
-                    <input onclick="simpanForm()" type="submit" name="submit" value="SUBMIT" class="bg-green">
+                    <input onclick="simpanForm(event)" type="submit" name="submit" value="SUBMIT" class="bg-green">
                 </div>
             </form>            
         </section>
@@ -180,7 +180,9 @@
 
             }
             
-            function simpanForm(){
+            function simpanForm(event){ 
+            event.preventDefault();
+
                 var nama = document.getElementById("inpName").value;
                 var roles = document.getElementById("inpRole").value;
                 var avail = document.getElementById("inpAvailability").value;
@@ -196,14 +198,7 @@
                 document.getElementById('pLocation').innerHTML = location;
                 document.getElementById('pExperience').innerHTML = years;
                 document.getElementById('pEmail').innerHTML = emails;
-
-                document.body.appendChild(nama);
-                document.body.appendChild(roles);
-                document.body.appendChild(avail);
-                document.body.appendChild(age);
-                document.body.appendChild(location);
-                document.body.appendChild(years);
-                document.body.appendChild(emails);
+                formMenu.style.display = "none"; // Menyembunyikan form setelah submit
             }
 
             function showMenu()
